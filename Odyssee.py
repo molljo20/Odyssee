@@ -75,16 +75,16 @@ with col1:
     for i, station in enumerate(stations):
 
         if i == st.session_state.current:
-            # ⚔️ Schwert-Icon für Odysseus
-            sword_icon = folium.CustomIcon(
-                icon_image="https://cdn-icons-png.flaticon.com/512/323/323033.png",
-                icon_size=(55, 55)
+            # 🗡️ Speer-Icon für Odysseus
+            spear_icon = folium.CustomIcon(
+                icon_image="https://cdn-icons-png.flaticon.com/512/808/808487.png",
+                icon_size=(50, 50)
             )
 
             folium.Marker(
                 location=station["coords"],
-                popup=f"⚔️ Odysseus kämpft hier: {station['name']}",
-                icon=sword_icon
+                popup=f"🗡️ Odysseus kämpft hier: {station['name']}",
+                icon=spear_icon
             ).add_to(m)
 
         else:

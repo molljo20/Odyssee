@@ -98,8 +98,8 @@ with col1:
         if i == st.session_state.current:
             folium.CircleMarker(
                 location=station["coords"],
-                radius=15,
-                color="red",
+                radius=18,
+                color="black",
                 fill=True,
                 fill_color="red",
                 popup=f"🌟 Aktuell: {station['name']}"

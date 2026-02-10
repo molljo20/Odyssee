@@ -96,18 +96,18 @@ with col1:
     # Marker für alle Stationen
     for i, station in enumerate(stations):
 
-        # Aktuelle Station: Odysseus als Schwert ⚔️
+        # Aktuelle Station: Odysseus als Segelschiff ⛵
         if i == st.session_state.current:
 
-            sword_icon = folium.CustomIcon(
-                icon_image="https://cdn-icons-png.flaticon.com/512/323/323033.png",
-                icon_size=(50, 50)
+            ship_icon = folium.CustomIcon(
+                icon_image="https://cdn-icons-png.flaticon.com/512/69/69933.png",
+                icon_size=(55, 55)
             )
 
             folium.Marker(
                 location=station["coords"],
-                popup=f"⚔️ Odysseus ist hier: {station['name']}",
-                icon=sword_icon
+                popup=f"⛵ Odysseus segelt hier: {station['name']}",
+                icon=ship_icon
             ).add_to(m)
 
         # Andere Stationen: normale blaue Marker

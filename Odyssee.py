@@ -95,15 +95,22 @@ with col1:
 
     # Marker für alle Stationen
     for i, station in enumerate(stations):
+
+        # Aktuelle Station: Odysseus als kleines Männchen
         if i == st.session_state.current:
-            folium.CircleMarker(
+
+            odysseus_icon = folium.CustomIcon(
+                icon_image="https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
+                icon_size=(40, 40)
+            )
+
+            folium.Marker(
                 location=station["coords"],
-                radius=15,
-                color="red",
-                fill=True,
-                fill_color="red",
-                popup=f"🌟 Aktuell: {station['name']}"
+                popup=f"🧍 Odysseus ist hier: {station['name']}",
+                icon=odysseus_icon
             ).add_to(m)
+
+        # Andere Stationen: normale blaue Marker
         else:
             folium.Marker(
                 location=station["coords"],

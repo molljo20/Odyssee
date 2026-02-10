@@ -75,16 +75,22 @@ with col1:
     for i, station in enumerate(stations):
 
         if i == st.session_state.current:
-            # 🗡️ Speer-Icon für Odysseus
-            spear_icon = folium.CustomIcon(
-                icon_image="https://cdn-icons-png.flaticon.com/512/808/808487.png",
-                icon_size=(50, 50)
-            )
-
-            folium.Marker(
+            # 🔴 Roter Kreis für Odysseus
+            folium.CircleMarker(
                 location=station["coords"],
-                popup=f"🗡️ Odysseus kämpft hier: {station['name']}",
-                icon=spear_icon
+                radius=15,
+                color="red",
+                fill=True,
+                fill_color="red",
+                popup=f"🌟 Odysseus ist hier: {station['name']}"
+            ).add_to(m)
+
+            # Kleines Text-Label „Odysseus“ über den Kreis
+            folium.map.Marker(
+                station["coords"],
+                icon=folium.DivIcon(
+                    html=f"""<div style="font-size:10px; color:white; font-weight:bold; text-align:center;">Odysseus</div>"""
+                )
             ).add_to(m)
 
         else:
@@ -98,7 +104,6 @@ with col1:
 
 with col2:
     st.subheader(f"📍 Aktuelle Station: {current_station['name']}")
-
     st.image(current_station["image"], use_container_width=True)
 
     if st.button("ℹ️ Was passiert hier?"):
